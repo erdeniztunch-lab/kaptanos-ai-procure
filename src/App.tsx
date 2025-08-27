@@ -7,6 +7,9 @@ import Index from "./pages/Index";
 import RequestForm from "./pages/RequestForm";
 import ExcelUpload from "./pages/ExcelUpload";
 import QuoteComparison from "./pages/QuoteComparison";
+import Approvals from "./pages/Approvals";
+import OrderTracking from "./pages/OrderTracking";
+import Reports from "./pages/Reports";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +25,9 @@ const App = () => (
           <Route path="/request" element={<RequestForm />} />
           <Route path="/upload" element={<ExcelUpload />} />
           <Route path="/quotes" element={<QuoteComparison />} />
+          <Route path="/approvals" element={<Approvals />} />
+          <Route path="/tracking" element={<OrderTracking />} />
+          <Route path="/reports" element={<Reports />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
