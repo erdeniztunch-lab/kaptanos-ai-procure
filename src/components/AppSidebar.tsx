@@ -47,54 +47,46 @@ export function AppSidebar() {
   const isActive = (path: string) => currentPath === path;
 
   return (
-    <Sidebar className={collapsed ? "w-20" : "w-80"} collapsible="icon">
+    <Sidebar collapsible="icon">
       <SidebarContent className="bg-gradient-sidebar text-primary-foreground shadow-sidebar border-0">
         {/* Logo Section */}
         {!collapsed && (
-          <div className="p-6 border-b border-primary-foreground/10">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-primary-foreground/20 rounded-xl flex items-center justify-center">
-                <Home className="w-5 h-5 text-primary-foreground" />
+          <div className="p-4 border-b border-primary-foreground/10">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 bg-primary-foreground/20 rounded-lg flex items-center justify-center">
+                <Home className="w-4 h-4 text-primary-foreground" />
               </div>
               <div>
-                <h2 className="font-bold text-lg">Kaptanos</h2>
-                <p className="text-xs text-primary-foreground/70">İnşaat Satın Alma</p>
+                <h2 className="font-semibold text-base">Kaptanos</h2>
+                <p className="text-xs text-primary-foreground/60">İnşaat Satın Alma</p>
               </div>
             </div>
           </div>
         )}
 
-        <div className="flex-1 py-6">
+        <div className="flex-1 py-4">
           <SidebarGroup>
-            <SidebarGroupLabel className="text-primary-foreground/60 font-semibold text-xs uppercase tracking-wider px-6 mb-4">
+            <SidebarGroupLabel className="text-primary-foreground/50 font-medium text-xs uppercase tracking-wide px-4 mb-3">
               Ana Menü
             </SidebarGroupLabel>
-            <SidebarGroupContent className="px-3">
-              <SidebarMenu className="space-y-2">
+            <SidebarGroupContent className="px-2">
+              <SidebarMenu className="space-y-1">
                 {mainItems.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
                       <NavLink
                         to={item.url}
                         className={({ isActive }) =>
-                          `flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${
+                          `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors duration-200 ${
                             isActive
-                              ? "bg-primary-foreground/20 text-primary-foreground font-semibold shadow-lg transform scale-[1.02]"
-                              : "text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground hover:transform hover:scale-[1.01]"
+                              ? "bg-primary-foreground/15 text-primary-foreground font-medium"
+                              : "text-primary-foreground/70 hover:bg-primary-foreground/8 hover:text-primary-foreground/90"
                           }`
                         }
                       >
-                        <div className={`p-2 rounded-lg transition-colors ${
-                          currentPath === item.url 
-                            ? "bg-primary-foreground/20" 
-                            : "bg-primary-foreground/10 group-hover:bg-primary-foreground/20"
-                        }`}>
-                          <item.icon className="h-5 w-5 flex-shrink-0" />
-                        </div>
+                        <item.icon className="h-4 w-4 flex-shrink-0" />
                         {!collapsed && (
-                          <div className="flex-1">
-                            <span className="text-sm font-medium">{item.title}</span>
-                          </div>
+                          <span className="text-sm">{item.title}</span>
                         )}
                       </NavLink>
                     </SidebarMenuButton>
@@ -105,35 +97,29 @@ export function AppSidebar() {
           </SidebarGroup>
         </div>
 
-        <div className="mt-auto border-t border-primary-foreground/10 pt-4">
+        <div className="border-t border-primary-foreground/10 pt-3">
           <SidebarGroup>
-            <SidebarGroupLabel className="text-primary-foreground/60 font-semibold text-xs uppercase tracking-wider px-6 mb-4">
+            <SidebarGroupLabel className="text-primary-foreground/50 font-medium text-xs uppercase tracking-wide px-4 mb-3">
               Sistem
             </SidebarGroupLabel>
-            <SidebarGroupContent className="px-3">
-              <SidebarMenu className="space-y-2">
+            <SidebarGroupContent className="px-2 pb-4">
+              <SidebarMenu className="space-y-1">
                 {systemItems.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
                       <NavLink
                         to={item.url}
                         className={({ isActive }) =>
-                          `flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 group ${
+                          `flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors duration-200 ${
                             isActive
-                              ? "bg-primary-foreground/20 text-primary-foreground font-semibold"
-                              : "text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground/90"
+                              ? "bg-primary-foreground/15 text-primary-foreground font-medium"
+                              : "text-primary-foreground/60 hover:bg-primary-foreground/8 hover:text-primary-foreground/80"
                           }`
                         }
                       >
-                        <div className={`p-2 rounded-lg transition-colors ${
-                          currentPath === item.url 
-                            ? "bg-primary-foreground/20" 
-                            : "bg-primary-foreground/10 group-hover:bg-primary-foreground/20"
-                        }`}>
-                          <item.icon className="h-4 w-4 flex-shrink-0" />
-                        </div>
+                        <item.icon className="h-4 w-4 flex-shrink-0" />
                         {!collapsed && (
-                          <span className="text-sm font-medium">{item.title}</span>
+                          <span className="text-sm">{item.title}</span>
                         )}
                       </NavLink>
                     </SidebarMenuButton>
